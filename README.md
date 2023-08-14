@@ -11,7 +11,7 @@
 <img align="left" alt="graphql" width="30px" style="padding-right:10px;" src="https://global.discourse-cdn.com/business5/uploads/apollographql/original/1X/25bd5104d61020fe4dc0777a5919cd009bca633e.png" />
 
 <br/>
-
+<br/>
 
 
 This is website with info about tinctures. Using Next, Prisma, Docker.
