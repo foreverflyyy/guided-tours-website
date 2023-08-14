@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 
 const Header = () => {
 
@@ -6,10 +7,19 @@ const Header = () => {
 
     return (
         <div className={"h-[50px] text-xl bg-blue-400 text-white px-5 flex justify-between items-center"}>
-            <h2 className={hoverClass}>Виктор Шелыгин</h2>
+            <Link
+                href={"/"}
+                className={hoverClass}
+            >
+                Виктор Шелыгин
+            </Link>
             <div className={"flex space-x-4"}>
-                <h3 className={hoverClass}>Contacts</h3>
-                <h3 className={hoverClass}>About</h3>
+                <Link
+                    href={"/serverTest"}
+                    className={hoverClass}
+                >
+                    Test Server
+                </Link>
             </div>
         </div>
     );

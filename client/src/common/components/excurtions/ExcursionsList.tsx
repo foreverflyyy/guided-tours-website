@@ -5,8 +5,8 @@ import ExcursionItem from "@/common/components/excurtions/ExcursionItem";
 
 const ExcursionsList = () => {
     return (
-        <div>
-            <h3>Excursion list:</h3>
+        <div className={"px-10 pt-7"}>
+            <h3 className={"py-2 text-lg font-bold"}>Excursion list:</h3>
             {excursions?.map((excursion: Excursion) =>
                 <ExcursionItem key={excursion.id} excursion={excursion}/>
             )}
