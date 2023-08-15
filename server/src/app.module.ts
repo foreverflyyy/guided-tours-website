@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ExcursionModule } from './excursion/excursion.module';
+import {MongooseModule} from "@nestjs/mongoose";
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+      ExcursionModule,
+      MongooseModule.forRoot("mongodb+srv://foreverflyyy:nik16112002@excursions.8jsxlcn.mongodb.net/"),
+  ]
 })
 export class AppModule {}
