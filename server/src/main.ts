@@ -3,9 +3,10 @@ import { AppModule } from './app.module';
 import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
 
 async function start() {
-  const app = await NestFactory.create(AppModule);
+    const app = await NestFactory.create(AppModule);
+    app.enableCors();
 
-  const config = new DocumentBuilder()
+    const config = new DocumentBuilder()
       .setTitle('Excursions API')
       .setDescription('The excursions API description')
       .setVersion('1.0')
@@ -17,11 +18,11 @@ async function start() {
       }, "X-API-KEY")
       .build();
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api', app, document);
 
-  const PORT = process.env.PORT || 3000
-  await app.listen(PORT, () => console.log(`Port start on server ${PORT}`));
+    const PORT = process.env.PORT || 3000
+    await app.listen(PORT, () => console.log(`Port start on server ${PORT}`));
 }
 
 start();

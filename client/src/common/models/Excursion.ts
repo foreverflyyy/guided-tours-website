@@ -1,6 +1,7 @@
 export interface Excursion {
-    id: number,
+    _id: string,
     name: string,
     description: string,
-    mainUrlImage: string
+    image: string,
+    price: string
 }

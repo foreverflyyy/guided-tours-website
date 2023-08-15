@@ -8,6 +8,8 @@ import Button from "@/common/components/UI/Button";
 
 const RequestForm = () => {
 
+    console.log(process.env.NEXT_PUBLIC_API_KEY)
+
     const [currentExcursion, setCurrentExcursion] = useState("");
     const [name, setName] = useState("");
     const [telephone, setTelephone] = useState("");
