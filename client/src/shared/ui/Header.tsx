@@ -15,10 +15,16 @@ const Header = () => {
             </Link>
             <div className={"flex space-x-4"}>
                 <Link
-                    href={"/serverTest"}
+                    href={"/"}
                     className={hoverClass}
                 >
-                    Test Server
+                    Main
+                </Link>
+                <Link
+                    href={"/excursion/1"}
+                    className={hoverClass}
+                >
+                    First excursion
                 </Link>
             </div>
         </div>

@@ -1,19 +1,16 @@
-const urlForRequest = process.env.SERVER_URL;
-
-export async function fetchMongo(...args: (string | number)[]) {
-    const commandUrl = `${urlForRequest}/${args.join('/')}`;
+export const getExcursion = async () => {
+    const commandUrl = `${process.env.SERVER_URL}/excursion`;
 
     const response = await fetch(commandUrl, {
         headers: {
             "X-API-KEY": process.env.API_KEY!
         },
         method: "GET",
-        cache: 'no-store'
+        cache: "no-cache"
     });
 
     if(!response.ok)
         throw new Error(`Error executing Backend command: ${response.statusText}`)
 
-    const data = await response.json();
-    return data;
+    return await response.json();
 }

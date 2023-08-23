@@ -1,10 +1,10 @@
 "use client"
 
 import React, {useState} from 'react';
-import Input from "@/common/components/UI/Input";
-import Select from "@/common/components/UI/Select";
-import {options} from "@/common/data/options";
-import Button from "@/common/components/UI/Button";
+import Input from "@/shared/ui/Input";
+import Select from "@/shared/ui/Select";
+import {options} from "@/entities/formRequest/data/options";
+import Button from "@/shared/ui/Button";
 
 const RequestForm = () => {
 
