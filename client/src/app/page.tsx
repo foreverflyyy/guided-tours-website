@@ -1,12 +1,11 @@
-import GreetingSection from "@/entities/greeting/components/GreetingSection";
-import ExcursionsList from "@/features/excursion/ExcursionsList";
-import {Excursion} from "@/entities/excursion/models/Excursion";
+import {GreetingSection} from "@/widgets/Greeting";
+import {ExcursionCatalog} from "@/widgets/Excursion";
 
-export default function Home({ params }: { params: {excursions: Excursion[]}}) {
+export default function Home() {
     return (
         <>
             <GreetingSection/>
-            <ExcursionsList/>
+            <ExcursionCatalog/>
         </>
     )
 }

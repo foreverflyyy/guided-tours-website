@@ -1,0 +1,1 @@
+export {ExcursionCard} from "./components/ExcursionCard";

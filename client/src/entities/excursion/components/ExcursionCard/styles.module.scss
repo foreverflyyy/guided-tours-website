@@ -1,0 +1,66 @@
+.card{
+  /*box-model*/
+  height: 200px;
+  width:200px;
+}
+.flip__card_container {
+  /*box-model*/
+  height:100%;
+  width: 100%;
+  box-sizing: border-box;
+  /*style*/
+  border: black solid 2px;
+}
+
+.front, .back{
+  /*display*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*box-model*/
+  height:100%;
+  width:100%;
+}
+.front{
+  /*style*/
+  font-size: 40px;
+  background-color: #666666;
+  color: #dddddd;
+}
+
+.back{
+  /*style*/
+  background-color: #f27777;
+  font-size: 40px;
+  color: #f70707;
+}
+
+
+/*for flip card*/
+.card{
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+.flip__card_container{
+  /*position*/
+  position: relative;
+  /*flip card*/
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.card:hover .flip__card_container{
+  transform: rotateY(180deg);
+}
+.front{
+  /*Position*/
+  position: absolute;
+  /*Flip Card*/
+  backface-visibility: hidden;
+}
+
+.back{
+  /*Position*/
+  position: absolute;
+  /*Flip Card*/
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}

@@ -2,7 +2,7 @@ import '@/app/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import {ReactNode} from "react";
-import Header from "@/shared/ui/Header";
+import {Header} from "@/widgets/Header";
 
 const inter = Inter({ subsets: ['latin'] })
 
