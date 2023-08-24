@@ -9,7 +9,7 @@ import {AuthGuard} from "@nestjs/passport";
 
 @ApiTags("Excursions")
 @ApiSecurity("X-API-KEY", ["X-API-KEY"])
-@Controller('/excursion')
+@Controller('/Excursion')
 export class ExcursionController {
     constructor(private readonly excursionService: ExcursionService) {}
 
@@ -23,7 +23,7 @@ export class ExcursionController {
 
     @Get(":id")
     @UseGuards(AuthGuard("api-key"))
-    @ApiOperation({ summary: "Get excursion by id" })
+    @ApiOperation({ summary: "Get Excursion by id" })
     @ApiParam({ name: "id", required: true, description: "Excursion identifier" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
@@ -32,7 +32,7 @@ export class ExcursionController {
     }
 
     @Post("/create")
-    @ApiOperation({ summary: "Create new excursion" })
+    @ApiOperation({ summary: "Create new Excursion" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     createExcursion(@Body() dto: CreateExcursionDto) {
@@ -40,7 +40,7 @@ export class ExcursionController {
     }
 
     @Post("/update")
-    @ApiOperation({ summary: "Update excursion" })
+    @ApiOperation({ summary: "Update Excursion" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     updateExcursion(@Body() dto: UpdateExcursionDto) {
@@ -49,7 +49,7 @@ export class ExcursionController {
 
     @Delete(":id")
     @ApiParam({ name: "id", required: true, description: "Excursion identifier" })
-    @ApiOperation({ summary: "Delete excursion" })
+    @ApiOperation({ summary: "Delete Excursion" })
     deleteExcursion(@Param("id") id: ObjectId) {
         return this.excursionService.deleteExcursion(id);
     }

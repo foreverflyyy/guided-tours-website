@@ -1,0 +1,35 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--header-z-index);
+  background-color: var(--color-black);
+  transition: transform var(--duration);
+
+  &.fixed {
+    transform: translateY(-100%);
+
+    @media (max-width: 1024px) {
+      transform: translateX(0%);
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+  transition: height var(--duration);
+
+  @media (max-width: 576px) {
+    height: 70px;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

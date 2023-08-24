@@ -1,4 +1,4 @@
-import {Excursion} from "@/shared/types/Excursion";
+import {Excursion} from "@/shared/types";
 
 export const excursions: Excursion[] = [
     {

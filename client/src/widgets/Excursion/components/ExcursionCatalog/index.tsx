@@ -1,4 +1,4 @@
-import {Excursion} from "@/shared/types/Excursion";
+import {Excursion} from "@/shared/types";
 import {getExcursions} from "@/widgets/Excursion/api/getExcursions";
 import {ExcursionCard} from "@/entities/Excursion";
 import styles from "./styles.module.scss"

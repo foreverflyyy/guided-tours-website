@@ -1,1 +1,1 @@
-export {RequestForm} from "./components/Form"
+export {RequestForm} from "./components/RequestForm"
