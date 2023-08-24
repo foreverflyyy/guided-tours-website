@@ -8,7 +8,7 @@ async function start() {
 
     const config = new DocumentBuilder()
       .setTitle('Excursions API')
-      .setDescription('The excursions API description')
+      .setDescription('The excursions.ts API description')
       .setVersion('1.0')
       .addApiKey({
         type: "apiKey",

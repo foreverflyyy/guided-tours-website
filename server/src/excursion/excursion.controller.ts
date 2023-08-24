@@ -14,7 +14,7 @@ export class ExcursionController {
     constructor(private readonly excursionService: ExcursionService) {}
 
     @Get()
-    @ApiOperation({ summary: "Get all excursions" })
+    @ApiOperation({ summary: "Get all excursions.ts" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: [Excursion] })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     getAll(): any {
