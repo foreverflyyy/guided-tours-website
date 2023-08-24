@@ -9,7 +9,7 @@ import {AuthGuard} from "@nestjs/passport";
 
 @ApiTags("Excursions")
 @ApiSecurity("X-API-KEY", ["X-API-KEY"])
-@Controller('/Excursion')
+@Controller('/excursion')
 export class ExcursionController {
     constructor(private readonly excursionService: ExcursionService) {}
 
@@ -23,8 +23,8 @@ export class ExcursionController {
 
     @Get(":id")
     @UseGuards(AuthGuard("api-key"))
-    @ApiOperation({ summary: "Get Excursion by id" })
-    @ApiParam({ name: "id", required: true, description: "Excursion identifier" })
+    @ApiOperation({ summary: "Get excursion by id" })
+    @ApiParam({ name: "id", required: true, description: "excursion identifier" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     getExcursionById(@Param("id") id: ObjectId) {
@@ -32,7 +32,7 @@ export class ExcursionController {
     }
 
     @Post("/create")
-    @ApiOperation({ summary: "Create new Excursion" })
+    @ApiOperation({ summary: "Create new excursion" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     createExcursion(@Body() dto: CreateExcursionDto) {
@@ -40,7 +40,7 @@ export class ExcursionController {
     }
 
     @Post("/update")
-    @ApiOperation({ summary: "Update Excursion" })
+    @ApiOperation({ summary: "Update excursion" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     updateExcursion(@Body() dto: UpdateExcursionDto) {
@@ -48,8 +48,8 @@ export class ExcursionController {
     }
 
     @Delete(":id")
-    @ApiParam({ name: "id", required: true, description: "Excursion identifier" })
-    @ApiOperation({ summary: "Delete Excursion" })
+    @ApiParam({ name: "id", required: true, description: "excursion identifier" })
+    @ApiOperation({ summary: "Delete excursion" })
     deleteExcursion(@Param("id") id: ObjectId) {
         return this.excursionService.deleteExcursion(id);
     }

@@ -1,6 +1,6 @@
-import {Excursion} from "@/shared/types";
+import {Excursion} from "@/shared/api";
 import {getExcursions} from "@/widgets/Excursion/api/getExcursions";
-import {ExcursionCard} from "@/entities/Excursion";
+import {ExcursionCard} from "../../../../entities/excursion";
 import styles from "./styles.module.scss"
 
 export const ExcursionCatalog = async () => {

@@ -8,7 +8,7 @@ export class UpdateExcursionDto {
     @ApiProperty({ description: "Name", nullable: false, example: "Excursion"})
     readonly name: string;
 
-    @ApiProperty({ description: "Description", nullable: false, example: "Excursion description"})
+    @ApiProperty({ description: "Description", nullable: false, example: "excursion description"})
     readonly description: string;
 
     @ApiProperty({ description: "Image", nullable: false, example: "https://image"})

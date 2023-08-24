@@ -4,7 +4,7 @@ export class CreateExcursionDto {
     @ApiProperty({ description: "Id", nullable: false, example: "Excursion" })
     readonly name: string;
 
-    @ApiProperty({ description: "Id", nullable: false, example: "Excursion description" })
+    @ApiProperty({ description: "Id", nullable: false, example: "excursion description" })
     readonly description: string;
 
     @ApiProperty({ description: "Id", nullable: false, example: "https://image" })

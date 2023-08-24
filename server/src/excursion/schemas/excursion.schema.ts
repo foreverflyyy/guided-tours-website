@@ -6,19 +6,19 @@ export type ExcursionDocument = HydratedDocument<Excursion>;
 
 @Schema()
 export class Excursion {
-    @ApiProperty({ description: "Excursion name", nullable: false })
+    @ApiProperty({ description: "excursion name", nullable: false })
     @Prop({ required: true })
     name: string;
 
-    @ApiProperty({ description: "Excursion description", nullable: false })
+    @ApiProperty({ description: "excursion description", nullable: false })
     @Prop({ required: true })
     description: string;
 
-    @ApiProperty({ description: "Excursion image", nullable: false })
+    @ApiProperty({ description: "excursion image", nullable: false })
     @Prop({ required: true })
     image: string;
 
-    @ApiProperty({ description: "Excursion price", nullable: false })
+    @ApiProperty({ description: "excursion price", nullable: false })
     @Prop({ required: true })
     price: string;
 }
