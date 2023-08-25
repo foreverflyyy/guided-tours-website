@@ -1,1 +1,0 @@
-export { CartoonsPage } from './ui';

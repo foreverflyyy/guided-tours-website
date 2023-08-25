@@ -7,6 +7,14 @@
  * ---------------------------------------------------------------
  */
 
+export interface Excursion {
+  _id: string,
+  name: string,
+  description: string,
+  image: string,
+  price: string
+}
+
 export interface Data<T> {
   docs: T[];
   /** Общее количество результатов */

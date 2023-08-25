@@ -1,4 +1,4 @@
-/* eslint-disable boundaries/element-types */
+/* eslint-disable boundaries/element-kinds */
 import { usePageEvent } from 'nextjs-effector';
 import type { PropsWithChildren } from 'react';
 import { RequestWindow } from '../../request';

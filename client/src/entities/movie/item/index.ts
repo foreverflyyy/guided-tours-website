@@ -1,1 +1,1 @@
-export { MovieItem } from './ui';
+export { ExcursionItem } from './ui';

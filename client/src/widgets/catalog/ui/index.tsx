@@ -4,7 +4,7 @@ import { useEvent, useStore } from 'effector-react';
 import { useEffect } from 'react';
 import { catalogModel } from 'widgets/catalog';
 import { Filters, filtersModel } from 'features/filters';
-import { MovieItem } from 'entities/movie/item';
+import { ExcursionItem } from 'entities/movie/item';
 import { useToggler } from 'shared/lib';
 import { Title, Icon, Button } from 'shared/ui';
 import { useElementOnScreen } from '../lib';
@@ -44,7 +44,7 @@ export const Catalog = ({ title }: CatalogProps) => {
         <Filters />
         <div className={styles.grid}>
           {data?.docs.map((item) => (
-            <MovieItem key={item.id} item={item} />
+            <ExcursionItem key={item.id} item={item} />
           ))}
         </div>
         {hasMore && (

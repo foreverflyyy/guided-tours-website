@@ -4,7 +4,7 @@ import { Burger } from './burger';
 import { Logo } from './logo';
 import { Menu } from './menu';
 import { Nav } from './nav';
-import { Profile } from './profile';
+import { Request } from './request';
 import { SearchButton } from './search-button';
 import styles from './styles.module.scss';
 
@@ -24,7 +24,7 @@ export const Header = () => {
         </div>
         <div className={styles.row}>
           <SearchButton />
-          <Profile />
+          <Request />
           <Burger />
         </div>
       </div>

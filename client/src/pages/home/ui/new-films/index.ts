@@ -1,1 +1,0 @@
-export { NewFilms } from './ui';

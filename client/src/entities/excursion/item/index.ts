@@ -1,1 +1,0 @@
-export {ExcursionItem} from "./ui";

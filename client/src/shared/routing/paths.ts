@@ -5,17 +5,17 @@ interface CatalogParams {
   sort?: string;
 }
 
-type Id = number | null | undefined;
+type Id = number | string | null | undefined;
 
 export const paths = {
   home: '/',
-  movies: '/films',
+  excursions: '/excursions',
   series: '/series',
   cartoons: '/cartoons',
   policy: '/policy',
-  profile: '/profile',
-  favorites: '/profile/favorites',
-  history: '/profile/history',
+  profile: '/request',
+  favorites: '/request/favorites',
+  history: '/request/history',
 
   // Get the URL for the movie catalog page
   catalog: (params: CatalogParams): string => {
@@ -24,6 +24,9 @@ export const paths = {
 
     return url;
   },
+
+  // Get the URL for the movie page
+  excursion: (id: Id): string => `/excursion/${id}`,
 
   // Get the URL for the movie page
   movie: (id: Id): string => `/film/${id}`,

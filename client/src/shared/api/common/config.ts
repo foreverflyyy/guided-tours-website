@@ -2,9 +2,10 @@ import axios from 'axios';
 import { createHttp } from 'effector-http-api';
 
 export const commonInstance = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: "http://localhost:5000",
+  // baseURL: process.env.SERVER_URL,
   headers: {
-    'X-API-KEY': process.env.API_TOKEN,
+    'X-API-KEY': process.env.API_KEY,
   },
 });
 

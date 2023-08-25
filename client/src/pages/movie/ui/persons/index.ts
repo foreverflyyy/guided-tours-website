@@ -1,1 +1,0 @@
-export { Persons } from './ui';

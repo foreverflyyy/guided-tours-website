@@ -1,1 +1,0 @@
-export { ForFamily } from './ui';

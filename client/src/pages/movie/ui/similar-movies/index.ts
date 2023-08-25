@@ -1,1 +1,0 @@
-export { SimilarMovies } from './ui';

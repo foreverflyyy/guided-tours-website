@@ -1,11 +1,13 @@
-import { GenresEnum } from 'shared/config';
 import { getCurrentYear, getYears } from 'shared/lib/date';
 import { http } from './config';
-import type { CatalogParams, Data, Movie, MovieEntity, Person } from './types';
+import type { CatalogParams, Data, Movie, MovieEntity, Person, Excursion } from './types';
 
 const LIMIT = 15;
 
 const routesConfig = http.createRoutesConfig({
+  getExcursions: http.createRoute<void, Excursion[]>(() => ({
+    url: `/excursion`,
+  })),
   getMovieById: http.createRoute<string, Movie>((id) => ({
     url: `/v1.3/movie/${id}`,
   })),
@@ -27,65 +29,6 @@ const routesConfig = http.createRoutesConfig({
       },
     }),
   ),
-  getNewMovies: http.createRoute<void, Data<MovieEntity>>({
-    url: '/v1.3/movie',
-    params: {
-      'rating.kp': '5-9',
-      year: getCurrentYear(),
-      sortField: 'votes.filmCritics',
-      sortType: '-1',
-      limit: LIMIT,
-    },
-  }),
-  getComedyMovies: http.createRoute<void, Data<MovieEntity>>({
-    url: '/v1.3/movie',
-    params: {
-      year: getCurrentYear(),
-      type: 'movie',
-      name: '!null',
-      'rating.kp': '7-10',
-      'votes.kp': '!null',
-      'poster.previewUrl': '!null',
-      'genres.name': GenresEnum.Comedy,
-      limit: LIMIT,
-    },
-  }),
-  getFamilyMovies: http.createRoute<void, Data<MovieEntity>>({
-    url: '/v1.3/movie',
-    params: {
-      'genres.name': GenresEnum.Family,
-      'poster.previewUrl': '!null',
-      year: getCurrentYear(),
-      name: '!null',
-      sortField: 'votes.imdb',
-      sortType: '-1',
-      limit: LIMIT,
-    },
-  }),
-  getDramaMovies: http.createRoute<void, Data<MovieEntity>>({
-    url: '/v1.3/movie',
-    params: {
-      year: getCurrentYear(),
-      'genres.name': GenresEnum.Drama,
-      'poster.previewUrl': '!null',
-      name: '!null',
-      sortField: 'votes.kp',
-      sortType: '-1',
-      limit: LIMIT,
-    },
-  }),
-  getFantasticMovies: http.createRoute<void, Data<MovieEntity>>({
-    url: '/v1.3/movie',
-    params: {
-      'genres.name': GenresEnum.ScienceFiction,
-      'poster.previewUrl': '!null',
-      year: getCurrentYear(),
-      name: '!null',
-      sortField: 'votes.kp',
-      sortType: '-1',
-      limit: LIMIT,
-    },
-  }),
   searchByName: http.createRoute<string, Data<MovieEntity>>((name) => ({
     url: '/v1.3/movie',
     params: {

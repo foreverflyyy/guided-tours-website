@@ -1,1 +1,0 @@
-export { Facts } from './ui';

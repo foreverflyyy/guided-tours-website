@@ -1,1 +1,0 @@
-export { MainButtons } from './ui';

@@ -1,6 +1,6 @@
 export function getCatalogType(pathname: string): string {
   switch (pathname) {
-    case '/films':
+    case '/excursions':
       return '1';
     case '/series':
       return '2';

@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo';
 import { ComponentType } from 'react';
 
-// eslint-disable-next-line operator-linebreak
 export const withSeo =
   <P extends object>(Component: ComponentType<P>) =>
   (props: P) =>
@@ -10,17 +9,17 @@ export const withSeo =
         <NextSeo
           nofollow
           noindex
-          title="Онлайн-кинотеатр Kinomore - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
-          description="Устройте кинотеатр у себя дома! Смотрите онлайн фильмы хорошего качества в приятной домашней обстановке и в удобное для вас время. Для вас всегда доступны на любой вкус: сериалы, фильмы, мультфильмы и многое другое."
+          title="Экскурсии в городе Калининград у лучшего экскурсовода области!"
+          description="Устройте приятный отпуск у нас в Калининградской области!"
           openGraph={{
-            title: 'Kinomore - фильмы и сериалы',
-            description: 'Kinomore - фильмы и сериалы',
+            title: 'Экскурсии Калиниград.',
+            description: 'Экскурсии Калиниград',
           }}
           additionalMetaTags={[
             {
               name: 'keywords',
               content:
-                'фильмы онлайн в хорошем отличном качестве без смс кино видео смотреть новинки кинофильмы онлайн кинотеатр 2020 2021 2022 просмотр видеоролики',
+                'экскурсии калининград область куршская балтийская коса балтийское море',
             },
             {
               name: 'viewport',
