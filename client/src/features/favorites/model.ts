@@ -1,6 +1,6 @@
 // import { and, not } from 'patronum';
 import { attach, createEvent, createStore, forward, sample } from 'effector';
-// import { authModel } from 'widgets/auth';
+// import { authModel } from 'widgets/request';
 import { sessionModel } from 'entities/session';
 import { internalApi } from 'shared/api';
 

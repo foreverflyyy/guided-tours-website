@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useStore } from 'effector-react';
 import Link from 'next/link';
 // eslint-disable-next-line boundaries/element-types
-import { authModel } from 'widgets/auth';
+import { requestModel } from 'widgets/request';
 import { sessionModel } from 'entities/session';
 import { useToggler } from 'shared/lib/toggler';
 import { paths } from 'shared/routing';
@@ -10,7 +10,7 @@ import { Icon } from 'shared/ui/icon';
 import styles from './styles.module.scss';
 
 export const Profile = () => {
-  const { open } = useToggler(authModel.toggler);
+  const { open } = useToggler(requestModel.toggler);
   const isLogged = useStore(sessionModel.$isLogged);
 
   const ProfileLink = (
