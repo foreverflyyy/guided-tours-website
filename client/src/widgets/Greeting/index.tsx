@@ -1,1 +1,0 @@
-export {GreetingSection} from "./components/Greeting"

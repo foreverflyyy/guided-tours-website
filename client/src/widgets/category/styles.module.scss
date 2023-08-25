@@ -1,0 +1,109 @@
+.section {
+  overflow: hidden;
+}
+
+.title {
+  @media (max-width: 576px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.container {
+  padding-bottom: 25px;
+}
+
+.title {
+  margin-bottom: 14px;
+
+  @media (max-width: 576px) {
+    margin-bottom: 10px;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      .icon svg {
+        transform: translateX(-2px);
+      }
+    }
+  }
+}
+
+.icon {
+  transform: rotate(180deg);
+  margin-top: 5px;
+  margin-left: 12px;
+  opacity: 0.7;
+
+  @media (max-width: 576px) {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  svg {
+    display: block;
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+    transition: transform var(--duration);
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.slider {
+  overflow: visible;
+}
+
+.slide {
+  width: 17%;
+
+  @media (max-width: 1400px) {
+    width: 18%;
+  }
+
+  @media (max-width: 1300px) {
+    width: 250px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 25%;
+  }
+
+  @media (max-width: 768px) {
+    width: 30%;
+  }
+
+  @media (max-width: 576px) {
+    width: 38%;
+  }
+}
+
+.prevBtn,
+.nextBtn {
+  &[disabled] {
+    opacity: 0;
+    visibility: hidden;
+  }
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.prevBtn {
+  left: 15px;
+}
+
+.nextBtn {
+  right: 15px;
+}
+
+.loader {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

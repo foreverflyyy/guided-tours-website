@@ -1,1 +1,1 @@
-export {ExcursionCard} from "./components/ExcursionCard";
+export {ExcursionItem} from "./item"

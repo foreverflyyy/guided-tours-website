@@ -1,17 +1,48 @@
-import React from 'react';
+import clsx from 'clsx';
+import { forwardRef, InputHTMLAttributes, useState } from 'react';
+import { Icon } from 'shared/ui/icon';
+import styles from './styles.module.scss';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{}
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  className?: string;
+  error?: string;
+  hasError?: boolean;
+  onClear?: () => void;
+}
 
-const classLine = "p-2 rounded-md border-2 border-blue-600 focus:outline-none " +
-    "hover:bg-gray-700 hover:text-white hover hover:border-gray-700 duration-500 focus:border-gray-700 focus:ring-sky-500";
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, hasError, placeholder, onClear, value, ...props }, ref) => {
+    const [isFocus, setIsFocus] = useState<boolean>(false);
 
-export const Input = ({...props}: InputProps) => {
+    const handleOnBlur = () => {
+      if (value === '') {
+        setIsFocus(false);
+      }
+    };
+
     return (
-        <div className={"py-2"}>
-            <input
-                {...props}
-                className={classLine}
-            />
-        </div>
+      <div className={clsx(styles.field, className)}>
+        <label className={clsx(styles.label, hasError && styles.error)}>
+          <span className={clsx(styles.placeholder, isFocus && styles.isFocus)}>{placeholder}</span>
+          <input
+            ref={ref}
+            onFocus={() => setIsFocus(true)}
+            onBlur={handleOnBlur}
+            className={clsx('input-reset', isFocus && styles.isFocus, onClear && styles.clear, styles.input)}
+            value={value}
+            {...props}
+          />
+        </label>
+        {onClear && (
+          <button
+            type="button"
+            onClick={onClear}
+            className={clsx('btn-reset', value && styles.visibile, styles.clearBtn)}
+          >
+            <Icon type="common" name="close" />
+          </button>
+        )}
+      </div>
     );
-};
+  },
+);

@@ -1,1 +1,2 @@
-export {getCatalogType} from "./get-catalog-type"
+export * from './get-catalog-type';
+export * from './use-element-on-screen';

@@ -1,27 +1,38 @@
-import React, {HTMLAttributes} from 'react';
+import clsx from 'clsx';
+import { forwardRef, HTMLAttributes, PropsWithChildren } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { useLockedBody } from 'shared/lib/modal';
+import { Portal } from 'shared/ui/portal';
+import { useEscape } from './lib';
+import styles from './styles.module.scss';
 
-export interface ModalProps extends HTMLAttributes<HTMLDivElement>  {
-    isOpen: boolean,
-    setIsOpen: (val: boolean) => void,
+export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
+  isOpen: boolean;
+  close: () => void;
 }
 
-export const Modal = ({isOpen, setIsOpen, children, ...props}: ModalProps) => {
+export const Modal = forwardRef<HTMLDivElement, PropsWithChildren<ModalProps>>(
+  ({ isOpen, close, children, className, ...props }, ref) => {
+    useLockedBody(isOpen);
+
+    useEscape(close);
 
     return (
-        <>
-            <div className="fixed inset-0 z-10 overflow-y-auto">
-                <div
-                    className="fixed inset-0 w-full h-full bg-black opacity-40"
-                    onClick={() => setIsOpen(false)}
-                ></div>
-                <div className="flex items-center min-h-screen px-4 py-8">
-                    <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
-                        <div className="mt-3 sm:flex">
-                            {children}
-                        </div>
-                    </div>
-                </div>
+      <CSSTransition
+        in={isOpen}
+        timeout={0}
+        classNames={{
+          enterDone: styles.done,
+        }}
+      >
+        <Portal rootId="#modal">
+          {isOpen && (
+            <div className={clsx(styles.modal, className)} ref={ref} {...props}>
+              {children}
             </div>
-        </>
+          )}
+        </Portal>
+      </CSSTransition>
     );
-};
+  },
+);

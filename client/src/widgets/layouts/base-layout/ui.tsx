@@ -1,16 +1,23 @@
+/* eslint-disable boundaries/element-types */
+import { usePageEvent } from 'nextjs-effector';
 import type { PropsWithChildren } from 'react';
-import { Header } from '@/widgets/header';
-import {usePageEvent} from "nextjs-effector";
-import {appStarted} from "@/shared/config/init";
+import { AuthWindow } from 'widgets/auth';
+import { Header } from 'widgets/header';
+import { SearchWindow } from 'entities/search-window';
+import { appStarted } from 'shared/config';
+
+// run process logic for all base layout pages
 import 'processes/root';
 
 export const BaseLayout = ({ children }: PropsWithChildren) => {
-    usePageEvent(appStarted);
+  usePageEvent(appStarted);
 
-    return (
-        <>
-            <Header />
-            <main className="main">{children}</main>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <main className="main">{children}</main>
+      <SearchWindow />
+      <AuthWindow />
+    </>
+  );
 };

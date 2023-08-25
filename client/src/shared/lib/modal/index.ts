@@ -1,2 +1,2 @@
-export {useLockedBody} from "./use-locked-body"
-export {useOnClickOutside} from "./use-on-click-outside"
+export * from './use-locked-body';
+export * from './use-on-click-outside';

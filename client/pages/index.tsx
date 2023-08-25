@@ -1,8 +1,8 @@
-import { pageModel } from '@/pages/home';
-import { createGSP } from '@/pages/shared';
+import { pageModel } from 'pages/home';
+import { createGSP } from 'pages/shared';
 
 export const getStaticProps = createGSP({
-    pageEvent: pageModel.pageStarted,
+  pageEvent: pageModel.pageStarted,
 });
 
-export { HomePage as default } from '@/pages/home';
+export { HomePage as default } from 'pages/home';

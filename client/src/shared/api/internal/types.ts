@@ -1,7 +1,20 @@
-import {ExcursionEnum} from "@/shared/config";
+export interface AuthDto {
+  email: string;
+  password: string;
+}
 
-export interface Request {
-    name: string,
-    typeExcursion: ExcursionEnum,
-    date: Date
+export interface User {
+  name: string;
+  email: string;
+  avatar: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface Message {
+  message: string;
+}
+
+export interface Status {
+  status: boolean;
 }

@@ -1,2 +1,2 @@
-export {commonApi} from "./api";
+export { commonApi } from './api';
 export * from './types';

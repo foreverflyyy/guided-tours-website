@@ -1,33 +1,97 @@
-.btn {
-  display: block;
-  width: 24px;
-  height: 24px;
-  opacity: 0.5;
-  color: var(--color-white);
-  margin-right: 27px;
-  transition: opacity var(--duration);
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: var(--min-width);
+  height: 100vh;
+  z-index: var(--menu-z-index);
+  overflow-x: hidden;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba(#000, 0.95);
+  transition: opacity var(--duration), visibility var(--duration);
 
-  @media (max-width: 1024px) {
-    margin-right: 24px;
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.container {
+  padding: 70px 25px 50px;
+}
+
+.opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration), transform var(--duration);
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
   }
 
-  @media (max-width: 768px) {
+  &.done {
     opacity: 1;
+    transform: translateY(0);
   }
+
+  &.isCurrent {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -10px;
+      width: 2px;
+      height: 100%;
+      background-color: #fff;
+
+      @media (max-width: 375px) {
+        left: -14px;
+      }
+    }
+  }
+}
+
+.link {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.close {
+  position: fixed;
+  z-index: 2;
+  top: 32px;
+  right: 32px;
+  width: 21px;
+  height: 21px;
 
   @media (max-width: 576px) {
-    width: 22px;
-    height: 22px;
-    margin-right: 19px;
+    width: 16px;
+    height: 16px;
+    right: 20px;
+    top: 27px;
   }
 
   &:hover {
-    opacity: 1;
+    svg {
+      fill: var(--color-white);
+    }
   }
 
   svg {
     display: block;
     width: 100%;
     height: 100%;
+    fill: var(--color-white);
   }
 }

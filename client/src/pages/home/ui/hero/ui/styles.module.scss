@@ -1,0 +1,35 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  margin: 15px 0 20px;
+
+  @media (max-width: 576px) {
+    margin: 0 0 10px;
+  }
+}
+
+.container {
+  max-width: 57%;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    max-width: 70%;
+  }
+
+  @media (max-width: 768px) {
+    max-width: calc(100% - calc(30px * 2));
+  }
+
+  @media (max-width: 576px) {
+    max-width: calc(100% - calc(18px * 2));
+  }
+}
+
+.slider {
+  width: 100%;
+  overflow: visible;
+}
+
+.slide {
+  width: 100%;
+}

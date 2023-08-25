@@ -1,2 +1,3 @@
-export {internalApi} from "./api"
-export * from "./types"
+export { internalApi } from './api';
+export { internalInstance } from './config';
+export * from './types';

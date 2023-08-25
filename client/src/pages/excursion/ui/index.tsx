@@ -8,9 +8,8 @@ import { IconsList } from './icons-list';
 export const ExcursionPage = () => {
     const data = useStore(pageModel.$excursion);
     const name = getPageTitle(data?.name);
-    const year = data?.year ? `(${data?.year})` : '';
-    const description = data?.description ?? data?.shortDescription ?? '';
-    const title = `${name} ${year} смотреть онлайн бесплатно в хорошем HD 1080 / 720 качестве`;
+    const description = data?.description ?? '';
+    const title = `Экскурсия - ${name}`;
 
     usePageEvent(pageModel.clientStarted);
 
@@ -26,7 +25,7 @@ export const ExcursionPage = () => {
                     description,
                     images: [
                         {
-                            url: data?.poster?.url ?? '',
+                            url: data?.image ?? '',
                             alt: name,
                         },
                     ],

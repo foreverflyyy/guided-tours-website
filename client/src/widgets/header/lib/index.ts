@@ -1,1 +1,1 @@
-export {useHeaderFixed} from "./use-header-fixed"
+export { useHeaderFixed } from './use-header-fixed';

@@ -1,18 +1,17 @@
-import {TogglerInstance} from "./types";
-import {useStore, useEvent} from "effector-react";
+import { useEvent, useStore } from 'effector-react';
+import type { TogglerInstance } from './types';
 
-export const useToggler = (togglerInstance: TogglerInstance) => {
-    const {$isOpen, ...togglerEvents} = togglerInstance;
+export function useToggler(togglerInstance: TogglerInstance) {
+  const { $isOpen, ...togglerEvents } = togglerInstance;
+  const isOpen = useStore($isOpen);
+  const open = useEvent(togglerEvents.open);
+  const close = useEvent(togglerEvents.close);
+  const toggle = useEvent(togglerEvents.toggle);
 
-    const isOpen = useStore($isOpen);
-    const open = useEvent(togglerEvents.open);
-    const close = useEvent(togglerEvents.close);
-    const toggle = useEvent(togglerEvents.toggle);
-
-    return {
-        isOpen,
-        open,
-        close,
-        toggle
-    }
+  return {
+    isOpen,
+    open,
+    close,
+    toggle,
+  };
 }

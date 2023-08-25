@@ -1,0 +1,41 @@
+.window {
+  position: fixed;
+  z-index: var(--window-z-index);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  min-width: var(--min-width);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(#000, 0.95);
+  transition: opacity var(--duration), visibility var(--duration);
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 20px 40px 50px;
+
+  @media (max-width: 1024px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media (max-width: 576px) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  @media (max-width: 375px) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+.message {
+  margin-top: 0;
+}

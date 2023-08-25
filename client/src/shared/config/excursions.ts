@@ -6,3 +6,9 @@ export const enum ExcursionEnum {
     Baltic = "Балтика",
     Kaliningrad = "Калининград",
 }
+
+export const enum TypeExcursionEnum {
+    Kaliningrad = "Калининград",
+    Baltic = "Балтика",
+    MuseumsOfTheRegion = "Музеи области",
+}
