@@ -1,8 +1,8 @@
-import { pageModel } from 'pages/movie';
+import { pageModel } from 'pages/excursion';
 import { createGSSP } from 'pages/shared';
 
 export const getServerSideProps = createGSSP({
   pageEvent: pageModel.pageStarted,
 });
 
-export { MoviePage as default } from 'pages/movie';
+export { ExcursionPage as default } from 'pages/excursion';

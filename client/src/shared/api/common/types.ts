@@ -12,7 +12,15 @@ export interface Excursion {
   name: string,
   description: string,
   image: string,
-  price: string
+  price: string,
+  places?: Place[]
+}
+
+export interface Place {
+  _id: string,
+  name: string,
+  address: string,
+  image: string
 }
 
 export interface Data<T> {

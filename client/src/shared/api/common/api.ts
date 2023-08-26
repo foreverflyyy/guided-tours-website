@@ -8,6 +8,9 @@ const routesConfig = http.createRoutesConfig({
   getExcursions: http.createRoute<void, Excursion[]>(() => ({
     url: `/excursion`,
   })),
+  getExcursionById: http.createRoute<string, Excursion>((id) => ({
+    url: `/excursion/${id}`,
+  })),
   getMovieById: http.createRoute<string, Movie>((id) => ({
     url: `/v1.3/movie/${id}`,
   })),
