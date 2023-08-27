@@ -25,6 +25,10 @@ export class ExcursionService {
         return this.excursionModel.findByIdAndUpdate(dto._id, dto);
     }
 
+    deleteAllExcursions() {
+        return this.excursionModel.deleteMany();
+    }
+
     async deleteExcursion(id: ObjectId) {
         const excursion = await this.excursionModel.findByIdAndDelete(id);
         return excursion._id;

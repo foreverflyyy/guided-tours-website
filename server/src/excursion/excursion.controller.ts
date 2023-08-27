@@ -47,6 +47,12 @@ export class ExcursionController {
         return this.excursionService.updateExcursion(dto);
     }
 
+    @Delete()
+    @ApiOperation({ summary: "Delete excursions" })
+    deleteAllExcursions() {
+        return this.excursionService.deleteAllExcursions();
+    }
+
     @Delete(":id")
     @ApiParam({ name: "id", required: true, description: "excursion identifier" })
     @ApiOperation({ summary: "Delete excursion" })

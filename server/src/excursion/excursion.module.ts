@@ -5,7 +5,9 @@ import {MongooseModule} from "@nestjs/mongoose";
 import {Excursion, ExcursionSchema} from "./schemas/excursion.schema";
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Excursion.name, schema: ExcursionSchema }])],
+  imports: [MongooseModule.forFeature([
+      { name: Excursion.name, schema: ExcursionSchema }
+  ])],
   controllers: [ExcursionController],
   providers: [ExcursionService]
 })

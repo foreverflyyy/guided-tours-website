@@ -1,8 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import {HydratedDocument, ObjectId} from 'mongoose';
 import {ApiProperty} from "@nestjs/swagger";
-
-export type ExcursionDocument = HydratedDocument<Excursion>;
+import {Place} from "../../places/schemas/place.schema";
+import mongoose from "mongoose";
 
 @Schema()
 export class Excursion {
@@ -16,11 +15,19 @@ export class Excursion {
 
     @ApiProperty({ description: "excursion image", nullable: false })
     @Prop({ required: true })
-    image: string;
+    mainImage: string;
 
     @ApiProperty({ description: "excursion price", nullable: false })
     @Prop({ required: true })
     price: string;
+
+    @ApiProperty({ description: "excursion images of excursion", nullable: false })
+    @Prop({ required: true })
+    images: string[];
+
+    @ApiProperty({ description: "excursion images of places in excursion", nullable: false })
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: Place.name }] })
+    places: Place[];
 }
 
 export const ExcursionSchema = SchemaFactory.createForClass(Excursion);
