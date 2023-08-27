@@ -1,6 +1,6 @@
 import { useStore } from 'effector-react';
 import Image from 'next/image';
-import { pageModel, getPageTitle } from 'pages/movie';
+import { pageModel, getPageTitle } from 'pages/excursion';
 import { Title as NativeTitle } from 'shared/ui/title';
 import styles from './styles.module.scss';
 

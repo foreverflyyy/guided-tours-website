@@ -1,6 +1,6 @@
 import { useStore } from 'effector-react';
 import { useState } from 'react';
-import { pageModel } from 'pages/movie';
+import { pageModel } from 'pages/excursion';
 import { useToggler } from 'shared/lib/toggler';
 import { Popup, Spinner } from 'shared/ui';
 import { getTrailer } from './lib';

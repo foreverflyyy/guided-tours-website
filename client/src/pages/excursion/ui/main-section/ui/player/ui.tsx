@@ -2,7 +2,7 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { CSSProperties, useState } from 'react';
-import { pageModel } from 'pages/movie';
+import { pageModel } from 'pages/excursion';
 import { useToggler } from 'shared/lib';
 import { Modal, Spinner, Icon } from 'shared/ui';
 import { useWindowSize } from './lib';

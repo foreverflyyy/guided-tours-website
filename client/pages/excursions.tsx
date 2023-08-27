@@ -1,8 +1,10 @@
-import { pageModel } from 'pages/excursions';
-import { createGSSP } from 'pages/shared';
+import { ExcursionsPage } from 'pages/excursions';
+import { createGIP } from 'pages/shared';
+import { catalogModel } from 'widgets/catalog';
 
-export const getServerSideProps = createGSSP({
-  pageEvent: pageModel.pageStarted,
+ExcursionsPage.getInitialProps = createGIP({
+  pageEvent: catalogModel.pageStarted,
 });
 
-export { ExcursionsPage as default } from 'pages/excursions';
+export default ExcursionsPage;
+

@@ -1,31 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { MovieEntity } from 'shared/api';
-import { getRating } from 'shared/lib';
+import type {Excursion} from 'shared/api';
 import { paths } from 'shared/routing';
-import { MovieRating } from 'shared/ui/movie-rating';
 import styles from './styles.module.scss';
 
 interface SearchItemProps {
-  item: MovieEntity;
+  item: Excursion;
 }
 
 export const SearchItem = ({ item }: SearchItemProps) => {
-  const { id, name, year, rating, poster } = item;
+  const { _id, name, image, description, price } = item;
 
   return (
     <li className={styles.item}>
-      <Link className={styles.link} href={paths.movie(id)}>
+      <Link className={styles.link} href={paths.excursion(_id)}>
         <div className={styles.image}>
-          {poster?.previewUrl && (
-            <Image sizes="100%" fill quality={100} alt={item?.name ?? ''} src={poster.previewUrl} />
-          )}
+          <Image sizes="100%" fill quality={100} alt={item?.name ?? ''} src={image} />
         </div>
         <div className={styles.text}>
           <span className={styles.name}>{name}</span>
           <div className={styles.info}>
-            <span className={styles.year}>{year}</span>
-            <MovieRating size="small">{getRating(rating)}</MovieRating>
+            <span className={styles.year}>{description}</span>
+            <span className={styles.year}>{price}</span>
           </div>
         </div>
       </Link>

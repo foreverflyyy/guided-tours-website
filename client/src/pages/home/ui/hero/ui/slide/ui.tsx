@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { paths } from 'shared/routing';
-import { Spinner, Title, MovieRating } from 'shared/ui';
+import { Spinner, Title } from 'shared/ui';
 import { Icon } from 'shared/ui/icon';
 import { usePlayer } from './lib';
 import styles from './styles.module.scss';
-import { HeroMovie } from './types';
+import { HeroExcursion } from './types';
 
 interface SlideProps {
-  item: HeroMovie;
+  item: HeroExcursion;
   isActiveSlide: boolean;
 }
 
@@ -46,7 +46,7 @@ export const HeroSlide = ({ item, isActiveSlide }: SlideProps) => {
 
   return (
     <div className={styles.item}>
-      <Link href={paths.movie(item?.id)} className={styles.link} />
+      <Link href={paths.excursion(item?.id)} className={styles.link} />
       <div className={styles.content}>
         <CSSTransition timeout={0} in={isActive} classNames={{ enterDone: styles.done }}>
           <Title className={styles.title} as="h2" size="small">
@@ -55,7 +55,6 @@ export const HeroSlide = ({ item, isActiveSlide }: SlideProps) => {
         </CSSTransition>
         <CSSTransition timeout={0} in={isActive} classNames={{ enterDone: styles.done }}>
           <div className={styles.bottom}>
-            <MovieRating className={styles.rating}>{item?.rating}</MovieRating>
             <span className={styles.year}>{item?.year}</span>
             <span className={styles.genre}>{item?.genre}</span>
           </div>

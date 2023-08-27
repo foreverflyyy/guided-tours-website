@@ -1,4 +1,4 @@
-export const heroMovies = [
+export const heroExcursions = [
   {
     id: 4365427,
     year: 2022,

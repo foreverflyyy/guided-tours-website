@@ -1,13 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import clsx from 'clsx';
-import { useEvent, useStore } from 'effector-react';
-import { useEffect } from 'react';
+import { useStore } from 'effector-react';
 import { catalogModel } from 'widgets/catalog';
 import { Filters, filtersModel } from 'features/filters';
-import { ExcursionItem } from 'entities/movie/item';
+import { ExcursionItem } from 'entities/excursion/item';
 import { useToggler } from 'shared/lib';
 import { Title, Icon, Button } from 'shared/ui';
 import { useElementOnScreen } from '../lib';
+import {Kinds} from "./kinds";
 import styles from './styles.module.scss';
 
 interface CatalogProps {
@@ -17,17 +16,8 @@ interface CatalogProps {
 export const Catalog = ({ title }: CatalogProps) => {
   const [buttonRef, isVisible] = useElementOnScreen<HTMLButtonElement>({ rootMargin: '450px' });
   const { open } = useToggler(filtersModel.toggler);
-  const loadMore = useEvent(catalogModel.loadMore);
-  const hasMore = useStore(catalogModel.$hasMore);
-  const pending = useStore(catalogModel.$pending);
   const params = useStore(filtersModel.$params);
-  const data = useStore(catalogModel.$catalog);
-
-  useEffect(() => {
-    if (isVisible) {
-      loadMore();
-    }
-  }, [isVisible]);
+  const data = useStore(catalogModel.$excursions);
 
   return (
     <section className={styles.section}>
@@ -41,24 +31,13 @@ export const Catalog = ({ title }: CatalogProps) => {
             <Icon type="common" name="filters" />
           </button>
         </div>
-        <Filters />
+        {/*<Filters />*/}
+        <Kinds/>
         <div className={styles.grid}>
-          {data?.docs.map((item) => (
-            <ExcursionItem key={item.id} item={item} />
+          {data?.map((item) => (
+            <ExcursionItem key={item._id} item={item} />
           ))}
         </div>
-        {hasMore && (
-          <Button
-            disabled
-            size="medium"
-            variant="gray"
-            ref={buttonRef}
-            skeletonLoading={pending}
-            className={styles.loadMore}
-          >
-            Показать больше
-          </Button>
-        )}
       </div>
     </section>
   );

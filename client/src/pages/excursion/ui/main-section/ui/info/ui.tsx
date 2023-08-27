@@ -1,6 +1,5 @@
 import { useStore } from 'effector-react';
 import { pageModel } from 'pages/excursion';
-import { minutesToHour, getSeasonString } from 'shared/lib';
 import styles from './styles.module.scss';
 
 export const Info = () => {

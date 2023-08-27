@@ -4,7 +4,7 @@ import { usePageEvent } from 'nextjs-effector';
 import { pageModel, getPageTitle } from 'pages/excursion';
 import { MainSection } from './main-section';
 import { Places } from './places';
-import { SimilarMovies } from './similar-movies';
+import { SimilarExcursions } from './similar-excursions';
 import { Tabs } from './tabs';
 
 export const ExcursionPage = () => {
@@ -36,7 +36,7 @@ export const ExcursionPage = () => {
       />
       <MainSection />
       <Tabs />
-      {/*<SimilarMovies />*/}
+      <SimilarExcursions/>
       <Places />
     </>
   );

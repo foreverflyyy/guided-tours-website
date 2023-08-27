@@ -1,1 +1,0 @@
-export { ExcursionsList } from './ui';

@@ -1,4 +1,4 @@
 export const enum SortEnum {
-  Rating = 'rating.kp',
-  Year = 'year',
+  Name = 'name',
+  Price = 'price',
 }

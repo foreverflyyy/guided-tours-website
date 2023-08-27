@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CarouselMultiply } from 'shared/ui/carousel-multiply';
-import { heroMovies } from '../config';
+import { heroExcursions } from '../config';
 import { HeroSlide } from './slide';
 import styles from './styles.module.scss';
 
@@ -16,7 +16,7 @@ export const Hero = () => {
           }}
           className={styles.slider}
           slideClassName={styles.slide}
-          items={heroMovies}
+          items={heroExcursions}
           onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
           renderItem={(item, idx) => <HeroSlide isActiveSlide={realIndex === idx} item={item} />}
         />

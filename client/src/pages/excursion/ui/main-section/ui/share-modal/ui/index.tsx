@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { CSSTransition } from 'react-transition-group';
-import { pageModel } from 'pages/movie';
+import { pageModel } from 'pages/excursion';
 import { useToggler } from 'shared/lib/toggler';
 import { Title, Popup, Icon } from 'shared/ui';
 import { items } from '../config';

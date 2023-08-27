@@ -6,7 +6,7 @@ export const Info = () => (
   <section className={styles.section}>
     <div className={clsx('container', styles.container)}>
       <Title className={styles.title} size="small" as="h2">
-        Добро пожаловать на экскурсии в Калининграде от лучшего экскурсовода области!!
+        Добро пожаловать на экскурсии в Калининграде от лучшего экскурсовода области!
       </Title>
       <p className={styles.desc}>
         У нас вы можете легко и быстро найти интересующию вас экскурсию благодаря нашему удобному поиску.

@@ -1,4 +1,4 @@
-export interface HeroMovie {
+export interface HeroExcursion {
   id: number;
   year: number;
   rating: string;
