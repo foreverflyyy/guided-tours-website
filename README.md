@@ -7,8 +7,6 @@
 <img align="left" alt="Tailwind" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
 <img align="left" alt="Mongodb" width="30px" style="padding-right:10px;" src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" />
 <img align="left" alt="Docker" width="30px" style="padding-right:10px;" src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" />
-<img align="left" alt="graphql" width="30px" style="padding-right:10px;" src="https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg" />
-<img align="left" alt="graphql" width="30px" style="padding-right:10px;" src="https://global.discourse-cdn.com/business5/uploads/apollographql/original/1X/25bd5104d61020fe4dc0777a5919cd009bca633e.png" />
 
 <br/>
 <br/>
