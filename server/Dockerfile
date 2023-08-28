@@ -1,13 +1,11 @@
-FROM node:18
+FROM node:18 AS server
 
-WORKDIR /app
+WORKDIR /app/server
 
-COPY package*.json ./
+COPY server/package*.json ./
 
 RUN npm install
 
 COPY . .
-
-COPY ./dist ./dist
 
 CMD ["npm", "run", "start:dev"]
