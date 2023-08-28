@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  nextapp:
+    container_name: nextapp
+    build:
+      context: .
+      dockerfile: ../client/Dockerfile
+    env_file:
+      - ../client/.env
+    volumes:
+      - ./client:/app/client
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY}
+      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
+    ports:
+      - 3000:3000
+    command: npm run dev
+    restart: always

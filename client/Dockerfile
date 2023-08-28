@@ -2,7 +2,7 @@ FROM node:18 AS client
 
 WORKDIR /app/client
 
-COPY package*.json yarn.lock ./
+COPY client/package.json client/yarn.lock ./
 
 RUN yarn install
 
