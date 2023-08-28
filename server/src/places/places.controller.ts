@@ -1,5 +1,5 @@
 import {Body, Controller, Delete, Get, HttpStatus, Param, Post, UseGuards} from '@nestjs/common';
-import {ApiOperation, ApiParam, ApiResponse, ApiTags} from "@nestjs/swagger";
+import {ApiOperation, ApiParam, ApiResponse, ApiSecurity, ApiTags} from "@nestjs/swagger";
 import {AuthGuard} from "@nestjs/passport";
 import {PlacesService} from "./places.service";
 import {CreatePlaceDto} from "./dto/create-place.dto";
@@ -19,7 +19,6 @@ export class PlacesController {
     }
 
     @Get(":id")
-    @UseGuards(AuthGuard("api-key"))
     @ApiOperation({ summary: "Get place by id" })
     @ApiParam({ name: "id", required: true, description: "place identifier" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Place })

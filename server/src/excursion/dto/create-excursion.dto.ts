@@ -13,7 +13,7 @@ export class CreateExcursionDto {
     @ApiProperty({ description: "price", nullable: false, example: "2000" })
     readonly price: string;
 
-    @ApiProperty({ description: "images", nullable: false, example: "[https://image]" })
+    @ApiProperty({ description: "images", nullable: false, example: Array(String) })
     readonly images: string[];
 
     @ApiProperty({ description: "id places", nullable: false, example: "['24672349723sdcs22']" })

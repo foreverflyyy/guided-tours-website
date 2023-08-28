@@ -36,7 +36,7 @@ export class Excursion extends Model<Excursion, ExcursionCreationAttrs> {
 
     @ApiProperty({example: '1', description: ''})
     @Column({type: DataType.ARRAY(DataType.STRING), allowNull: false})
-    images: string;
+    images: string[];
 
     @BelongsToMany(() => Place, () => ExcursionPlaces)
     places: Place[]

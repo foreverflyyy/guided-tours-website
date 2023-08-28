@@ -12,6 +12,7 @@ export class ExcursionController {
     constructor(private readonly excursionService: ExcursionService) {}
 
     @Get()
+    @UseGuards(AuthGuard("api-key"))
     @ApiOperation({ summary: "Get all excursions" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: [Excursion] })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
@@ -30,6 +31,7 @@ export class ExcursionController {
     }
 
     @Post()
+    @UseGuards(AuthGuard("api-key"))
     @ApiOperation({ summary: "Create new excursion" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
@@ -38,6 +40,7 @@ export class ExcursionController {
     }
 
     @Delete(":id")
+    @UseGuards(AuthGuard("api-key"))
     @ApiParam({ name: "id", required: true, description: "excursion identifier" })
     @ApiOperation({ summary: "Delete excursion" })
     deleteExcursion(@Param("id") id: number) {
