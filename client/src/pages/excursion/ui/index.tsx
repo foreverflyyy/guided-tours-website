@@ -10,7 +10,6 @@ import { Tabs } from './tabs';
 export const ExcursionPage = () => {
   const data = useStore(pageModel.$excursion);
   const name = getPageTitle(data?.name);
-  const year = data?.price ?? '';
   const description = data?.description ?? '';
   const title = `${name} экскурсия в Калининграде`;
 
@@ -28,7 +27,7 @@ export const ExcursionPage = () => {
           description,
           images: [
             {
-              url: data?.image ?? '',
+              url: data?.mainImage ?? '',
               alt: name,
             },
           ],
@@ -36,8 +35,8 @@ export const ExcursionPage = () => {
       />
       <MainSection />
       <Tabs />
-      <SimilarExcursions/>
       <Places />
+      <SimilarExcursions/>
     </>
   );
 };

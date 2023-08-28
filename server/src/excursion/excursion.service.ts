@@ -16,7 +16,7 @@ export class ExcursionService {
     }
 
     getExcursionById(id: number): Promise<Excursion> {
-        return this.excursionRepository.findOne({where: {id}});
+        return this.excursionRepository.findOne({where: {id}, include: {all: true}});
     }
 
     async createExcursion(dto: CreateExcursionDto){

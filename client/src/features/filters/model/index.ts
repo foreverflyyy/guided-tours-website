@@ -2,7 +2,7 @@ import type { ParsedUrlQuery } from 'querystring';
 import { createEvent, createStore, sample } from 'effector';
 import { createToggler, paramsToString } from 'shared/lib';
 import { navigationModel } from 'shared/navigation';
-import { genres, years } from '../config';
+import { genres } from '../config';
 import { getOption } from '../lib';
 
 export const toggler = createToggler();
@@ -14,7 +14,7 @@ const $filters = createStore<Array<string | undefined>>([]);
 sample({
   clock: navigationModel.$query,
   filter: Boolean,
-  fn: ({ genre, year }) => [getOption(genres, genre as string), getOption(years, year as string)],
+  fn: ({ genre }) => [getOption(genres, genre as string)],
   target: $filters,
 });
 

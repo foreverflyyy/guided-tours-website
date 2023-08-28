@@ -9,11 +9,10 @@ interface PersonItemProps {
 }
 
 export const PlaceItem = ({ item }: PersonItemProps) => (
-  <Link className={styles.item} href={paths.placesByExcursion(item?._id)}>
+  <div className={styles.item}>
     <div className={styles.image}>
       <Image sizes="100%" fill src={item?.image ?? ''} alt={item?.name ?? ''} />
     </div>
     <span className={styles.name}>{item?.name}</span>
-    <span className={styles.profession}>Address: {item?.address}</span>
-  </Link>
+  </div>
 );

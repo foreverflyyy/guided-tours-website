@@ -12,16 +12,16 @@ interface ExcursionItemProps {
 export const ExcursionItem = ({ item, small }: ExcursionItemProps) => {
 
   return (
-    <Link className={styles.item} href={paths.excursion(item?._id)}>
+    <Link className={styles.item} href={paths.excursion(item?.id)}>
       <div className={styles.imageWrapper}>
-        {item?._id && (
+        {item?.id && (
           <Image
             sizes="100%"
             fill
             quality={100}
             className={styles.image}
             alt={item?.name ?? ''}
-            src={item?.image || ''}
+            src={item?.mainImage || ''}
           />
         )}
       </div>

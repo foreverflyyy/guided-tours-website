@@ -9,13 +9,13 @@ interface SearchItemProps {
 }
 
 export const SearchItem = ({ item }: SearchItemProps) => {
-  const { _id, name, image, description, price } = item;
+  const { id, name, mainImage, description, price } = item;
 
   return (
     <li className={styles.item}>
-      <Link className={styles.link} href={paths.excursion(_id)}>
+      <Link className={styles.link} href={paths.excursion(id)}>
         <div className={styles.image}>
-          <Image sizes="100%" fill quality={100} alt={item?.name ?? ''} src={image} />
+          <Image sizes="100%" fill quality={100} alt={item?.name ?? ''} src={mainImage} />
         </div>
         <div className={styles.text}>
           <span className={styles.name}>{name}</span>

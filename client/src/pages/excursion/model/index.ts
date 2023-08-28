@@ -15,12 +15,12 @@ const getExcursionByIdFx = attach({ effect: commonApi.getExcursionById });
 export const $excursion = restore(getExcursionByIdFx, null);
 
 
-const getSimilarExcursionsFx = attach({ effect: commonApi.getSimilarExcursions });
-export const $similarExcursions = restore(getSimilarExcursionsFx, null);
+const getExcursionsFx = attach({ effect: commonApi.getExcursions });
+export const $excursions = restore(getExcursionsFx, null);
 
 
 sample({
   clock: pageStarted,
   fn: ({ params }) => params?.id as string,
-  target: [getExcursionByIdFx, getSimilarExcursionsFx]
+  target: [getExcursionByIdFx, getExcursionsFx]
 });

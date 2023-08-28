@@ -10,9 +10,6 @@ const routesConfig = http.createRoutesConfig({
   getExcursionById: http.createRoute<string, Excursion>((id) => ({
     url: `/excursion/${id}`,
   })),
-  getSimilarExcursions: http.createRoute<string, Excursion[]>((id) => ({
-    url: `/excursion`,
-  })),
   searchByName: http.createRoute<string, Excursion[]>((query) => ({
     url: '/excursion',
     params: {

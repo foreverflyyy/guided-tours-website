@@ -25,17 +25,15 @@ export const Catalog = ({ title }: CatalogProps) => {
         <div className={styles.top}>
           <Title className={styles.title}>
             {title}
-            {params && `: ${params}`}
           </Title>
           <button onClick={open} className={clsx('btn-reset', styles.btn)}>
             <Icon type="common" name="filters" />
           </button>
         </div>
-        {/*<Filters />*/}
         <Kinds/>
         <div className={styles.grid}>
           {data?.map((item) => (
-            <ExcursionItem key={item._id} item={item} />
+            <ExcursionItem key={item.id} item={item} />
           ))}
         </div>
       </div>

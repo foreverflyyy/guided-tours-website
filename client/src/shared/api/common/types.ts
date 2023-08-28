@@ -1,13 +1,15 @@
 export interface Excursion {
-  _id: string,
+  id: string,
   name: string,
   description: string,
-  image: string,
+  mainImage: string,
   price: string,
-  places?: Place[]
+  images: string[],
+  places: Place[]
 }
 
 export interface Place {
+  id: number
   name: string,
   image: string
 }
