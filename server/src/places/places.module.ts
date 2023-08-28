@@ -1,14 +1,17 @@
 import { Module } from '@nestjs/common';
 import { PlacesController } from './places.controller';
 import { PlacesService } from './places.service';
-import {MongooseModule} from "@nestjs/mongoose";
-import {Place, PlaceSchema} from "./schemas/place.schema";
+import {SequelizeModule} from "@nestjs/sequelize";
+import {Place} from "./place.model";
+import {Excursion} from "../excursion/excursion.model";
+import {ExcursionPlaces} from "./excursion-places.model";
 
 @Module({
-  imports: [MongooseModule.forFeature([
-    { name: Place.name, schema: PlaceSchema },
-  ])],
+  imports: [
+    SequelizeModule.forFeature([Place, Excursion, ExcursionPlaces])
+  ],
   controllers: [PlacesController],
-  providers: [PlacesService]
+  providers: [PlacesService],
+  exports: [PlacesService]
 })
 export class PlacesModule {}

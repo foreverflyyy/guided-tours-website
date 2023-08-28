@@ -1,31 +1,25 @@
 import { Injectable } from '@nestjs/common';
-import {InjectModel} from "@nestjs/mongoose";
-import {Model, ObjectId} from "mongoose";
-import {Place} from "./schemas/place.schema";
 import {CreatePlaceDto} from "./dto/create-place.dto";
+import {InjectModel} from "@nestjs/sequelize";
+import {Place} from "./place.model";
 
 @Injectable()
 export class PlacesService {
-    constructor(@InjectModel(Place.name) private placeModel: Model<Place>) {}
+    constructor(@InjectModel(Place) private placeRepository: typeof Place) {}
 
     async getAllPlaces(): Promise<Place[]> {
-        return this.placeModel.find();
+        return await this.placeRepository.findAll();
     }
 
-    getPlaceById(id: ObjectId): Promise<Place> {
-        return this.placeModel.findById(id);
+    async getPlaceById(id: number): Promise<Place> {
+        return await this.placeRepository.findOne({where: {id}});
     }
 
-    createPlaces(dto: CreatePlaceDto): string {
-        dto.places.forEach(place => this.placeModel.create(place));
-        return 'Success'
+    async createPlaces(dto: CreatePlaceDto) {
+        return await this.placeRepository.create(dto);
     }
 
-    deleteAllPlaces() {
-        return this.placeModel.deleteMany();
-    }
-
-    deletePlace(id: ObjectId) {
-        return this.placeModel.findByIdAndDelete(id);
+    async deletePlace(id: number) {
+        return await this.placeRepository.destroy({where: {id}});
     }
 }

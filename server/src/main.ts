@@ -7,7 +7,7 @@ async function start() {
     app.enableCors();
 
     const config = new DocumentBuilder()
-      .setTitle('Excursions API')
+      .setTitle('Guided Tours API')
       .setDescription('The excursions.ts API description')
       .setVersion('1.0')
       .addApiKey({

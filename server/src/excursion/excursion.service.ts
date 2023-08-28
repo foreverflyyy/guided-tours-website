@@ -1,36 +1,37 @@
 import {Injectable} from '@nestjs/common';
-import {Model, ObjectId} from "mongoose";
 import {CreateExcursionDto} from "./dto/create-excursion.dto";
-import {InjectModel} from "@nestjs/mongoose";
-import {Excursion} from "./schemas/excursion.schema";
-import {UpdateExcursionDto} from "./dto/update-excursion.dto";
+import {InjectModel} from "@nestjs/sequelize";
+import {Excursion} from "./excursion.model";
+import {PlacesService} from "../places/places.service";
 
 @Injectable()
 export class ExcursionService {
-    constructor(@InjectModel(Excursion.name) private excursionModel: Model<Excursion>) {}
+    constructor(
+        @InjectModel(Excursion) private excursionRepository: typeof Excursion,
+        private placesService: PlacesService
+    ) {}
 
     async getAllExcursions(): Promise<Excursion[]> {
-        return this.excursionModel.find();
+        return this.excursionRepository.findAll({include: {all: true}});
     }
 
-    getExcursionById(id: ObjectId): Promise<Excursion> {
-        return this.excursionModel.findById(id);
+    getExcursionById(id: number): Promise<Excursion> {
+        return this.excursionRepository.findOne({where: {id}});
     }
 
-    createExcursion(dto: CreateExcursionDto): Promise<Excursion> {
-        return this.excursionModel.create(dto);
+    async createExcursion(dto: CreateExcursionDto){
+        const excursion = await this.excursionRepository.create(dto);
+        const places = [];
+
+        for(const placeId of dto.places){
+            const place = await this.placesService.getPlaceById(placeId);
+            places.push(place.id)
+        }
+
+        await excursion.$set('places', places)
     }
 
-    updateExcursion(dto: UpdateExcursionDto): Promise<Excursion> {
-        return this.excursionModel.findByIdAndUpdate(dto._id, dto);
-    }
-
-    deleteAllExcursions() {
-        return this.excursionModel.deleteMany();
-    }
-
-    async deleteExcursion(id: ObjectId) {
-        const excursion = await this.excursionModel.findByIdAndDelete(id);
-        return excursion._id;
+    async deleteExcursion(id: number): Promise<void> {
+        await this.excursionRepository.destroy({where: {id}});
     }
 }

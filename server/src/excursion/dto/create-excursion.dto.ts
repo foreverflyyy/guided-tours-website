@@ -1,5 +1,4 @@
 import {ApiProperty} from "@nestjs/swagger";
-import {ObjectId} from "mongoose";
 
 export class CreateExcursionDto {
     @ApiProperty({ description: "Id", nullable: false, example: "Excursion" })
@@ -17,6 +16,6 @@ export class CreateExcursionDto {
     @ApiProperty({ description: "images", nullable: false, example: "[https://image]" })
     readonly images: string[];
 
-    @ApiProperty({ description: "places", nullable: false, example: ["64ebd828b2f8d271b1769acb"] })
-    readonly places: ObjectId[];
+    @ApiProperty({ description: "id places", nullable: false, example: "['24672349723sdcs22']" })
+    readonly places: number[];
 }

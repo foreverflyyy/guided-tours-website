@@ -1,11 +1,9 @@
 import {Body, Controller, Delete, Get, HttpStatus, Param, Post, UseGuards} from '@nestjs/common';
 import {ExcursionService} from "./excursion.service";
-import {ObjectId} from "mongoose";
 import {CreateExcursionDto} from "./dto/create-excursion.dto";
-import {UpdateExcursionDto} from "./dto/update-excursion.dto";
 import {ApiOperation, ApiParam, ApiResponse, ApiSecurity, ApiTags} from "@nestjs/swagger";
-import {Excursion} from "./schemas/excursion.schema";
 import {AuthGuard} from "@nestjs/passport";
+import {Excursion} from "./excursion.model";
 
 @ApiTags("Excursions")
 @ApiSecurity("X-API-KEY", ["X-API-KEY"])
@@ -14,7 +12,7 @@ export class ExcursionController {
     constructor(private readonly excursionService: ExcursionService) {}
 
     @Get()
-    @ApiOperation({ summary: "Get all excursions.ts" })
+    @ApiOperation({ summary: "Get all excursions" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: [Excursion] })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
     getAll(): any {
@@ -27,11 +25,11 @@ export class ExcursionController {
     @ApiParam({ name: "id", required: true, description: "excursion identifier" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
-    getExcursionById(@Param("id") id: ObjectId) {
+    getExcursionById(@Param("id") id: number) {
         return this.excursionService.getExcursionById(id);
     }
 
-    @Post("/create")
+    @Post()
     @ApiOperation({ summary: "Create new excursion" })
     @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
     @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
@@ -39,24 +37,10 @@ export class ExcursionController {
         return this.excursionService.createExcursion(dto);
     }
 
-    @Post("/update")
-    @ApiOperation({ summary: "Update excursion" })
-    @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Excursion })
-    @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: "Bad Request" })
-    updateExcursion(@Body() dto: UpdateExcursionDto) {
-        return this.excursionService.updateExcursion(dto);
-    }
-
-    @Delete()
-    @ApiOperation({ summary: "Delete excursions" })
-    deleteAllExcursions() {
-        return this.excursionService.deleteAllExcursions();
-    }
-
     @Delete(":id")
     @ApiParam({ name: "id", required: true, description: "excursion identifier" })
     @ApiOperation({ summary: "Delete excursion" })
-    deleteExcursion(@Param("id") id: ObjectId) {
+    deleteExcursion(@Param("id") id: number) {
         return this.excursionService.deleteExcursion(id);
     }
 }
