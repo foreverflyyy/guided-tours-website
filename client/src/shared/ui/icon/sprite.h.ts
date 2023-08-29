@@ -14,6 +14,7 @@ export interface SpritesMap {
     | 'share'
     | 'sort'
     | 'star'
+    | 'upload'
     | 'volume-high'
     | 'volume-slash';
   genres: 'cup' | 'fire' | 'happy' | 'hearts' | 'knife' | 'map' | 'music' | 'people' | 'rocket' | 'tank';
@@ -36,6 +37,7 @@ export const SPRITES_META: { [K in keyof SpritesMap]: SpritesMap[K][] } = {
     'share',
     'sort',
     'star',
+    'upload',
     'volume-high',
     'volume-slash',
   ],

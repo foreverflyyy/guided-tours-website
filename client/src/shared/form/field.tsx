@@ -26,7 +26,7 @@ const useFieldProps = (is: FieldModel<any>, props: FieldChildProps) => {
 
   return {
     value,
-    focused,
+    focused: focused ? true : undefined,
     hasError: shouldShowValidation && errorMessage,
     error: errorMessage,
     onChange: compose(onChange, props.onChange),

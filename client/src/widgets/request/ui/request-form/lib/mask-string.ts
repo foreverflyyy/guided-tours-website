@@ -1,1 +1,1 @@
-export const maskString = (str: string) => '●'.repeat(str.length);
+export const maskString = (str: string) => '●'.repeat(str?.length);

@@ -23,7 +23,7 @@ export const Kinds = () => {
       })}
     >
       <h2 className="visually-hidden">Жанры</h2>
-      <div className="container">
+      <div className="">
         <Swiper
           modules={[Mousewheel, FreeMode]}
           freeMode

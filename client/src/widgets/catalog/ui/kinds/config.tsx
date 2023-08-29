@@ -10,13 +10,13 @@ export const genres = [
   },
   {
     href: paths.catalog({ genre: GenresEnum.Family }),
-    icon: <Icon type="genres" name="knife" />,
+    icon: <Icon type="genres" name="hearts" />,
     text: 'Семейные'
   },
   {
     href: paths.catalog({ genre: GenresEnum.Adults
     }),
-    icon: <Icon type="genres" name="map" />,
+    icon: <Icon type="genres" name="people" />,
     text: 'Взрослые',
   },
   {
@@ -26,11 +26,11 @@ export const genres = [
   },
   {
     href: paths.catalog({ genre: GenresEnum.Baltic }),
-    icon: <Icon type="genres" name="people" />,
+    icon: <Icon type="genres" name="happy" />,
     text: 'Балтийское море' },
   {
     href: paths.catalog({ genre: GenresEnum.Kurshkaya }),
-    icon: <Icon type="genres" name="tank" />,
+    icon: <Icon type="genres" name="fire" />,
     text: 'Куршская коса'
   },
 ];

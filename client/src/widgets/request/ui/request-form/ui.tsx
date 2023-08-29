@@ -15,7 +15,7 @@ export const RequestForm = () => {
 
   const maskName = maskString(name);
   const maskEmail = maskString(email);
-  const maskCount = maskString(countPeople.toString());
+  const maskCount = maskString(countPeople?.toString());
 
   const pending = useStore(sessionModel.$pending);
   const inputRef = useRef<HTMLInputElement>(null);

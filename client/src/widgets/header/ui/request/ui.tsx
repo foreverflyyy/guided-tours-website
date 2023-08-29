@@ -9,7 +9,7 @@ export const Request = () => {
 
   return (
     <button onClick={open} className={clsx('btn-reset', styles.profile)}>
-      <Icon type="common" name="link" />
+      <Icon type="common" name="edit" />
       Отправить заявку
     </button>
   );
