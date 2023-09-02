@@ -10,7 +10,7 @@ export const Hero = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        {/*<CarouselMultiply
+        <CarouselMultiply
           options={{
             loop: true,
           }}
@@ -19,7 +19,7 @@ export const Hero = () => {
           items={heroExcursions}
           onSlideChange={(swiper) => setRealIndex(swiper.realIndex)}
           renderItem={(item, idx) => <HeroSlide isActiveSlide={realIndex === idx} item={item} />}
-        />*/}
+        />
       </div>
     </section>
   );
